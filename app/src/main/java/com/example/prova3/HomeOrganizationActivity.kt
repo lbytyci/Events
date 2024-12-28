@@ -83,7 +83,44 @@ class HomeOrganizationActivity : AppCompatActivity() {
                     true
                 }
 
+                
+
                 else -> false
             }
         }
+    }
+
+
+    private fun setupRecyclerView() {
+        val recyclerView = findViewById<RecyclerView>(R.id.mainRecyclerView)
+        if (recyclerView != null) {
+            eventAdapter = EventAdapter(eventList)
+            recyclerView.layoutManager = LinearLayoutManager(this)
+            recyclerView.adapter = eventAdapter
+        } else {
+            Toast.makeText(this, "RecyclerView not found", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun fetchEventsFromDatabase() {
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                eventList.clear()
+                for (dataSnapshot in snapshot.children) {
+                    val event = dataSnapshot.getValue(Event::class.java)
+                    if (event != null) {
+                        eventList.add(event)
+                    }
+                }
+                eventAdapter.notifyDataSetChanged()
+            }
+            
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(
+                    this@HomeOrganizationActivity,
+                    "Failed to load events: ${error.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
