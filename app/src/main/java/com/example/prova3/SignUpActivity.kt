@@ -67,3 +67,31 @@ class SignUpActivity : AppCompatActivity() {
         val textPassword = editTextRegisterPwd.text.toString().trim()
         val textConfirmPassword = editTextRegisterConfirmPwd.text.toString().trim()
         val textType = radioButtonRegisterTypeSelected.text.toString()
+
+
+        when {
+            textFullName.isEmpty() -> {
+                editTextRegisterFullName.error = "Full name is required!"
+                editTextRegisterFullName.requestFocus()
+            }
+            textEmail.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(textEmail).matches() -> {
+                editTextRegisterEmail.error = "Valid email is required!"
+                editTextRegisterEmail.requestFocus()
+            }
+            textMobile.isEmpty() || textMobile.length != 11 -> {
+                editTextRegisterMobile.error = "Phone number must be 11 digits!"
+                editTextRegisterMobile.requestFocus()
+            }
+            textPassword.isEmpty() || textPassword.length < 8 -> {
+                editTextRegisterPwd.error = "Password must be at least 8 characters!"
+                editTextRegisterPwd.requestFocus()
+            }
+            textPassword != textConfirmPassword -> {
+                editTextRegisterConfirmPwd.error = "Passwords must match!"
+                editTextRegisterConfirmPwd.requestFocus()
+            }
+            else -> {
+                registerUser(textFullName, textEmail, textType, textMobile, textPassword)
+            }
+        }
+    }
