@@ -62,3 +62,14 @@ class HomeOrganizationSearchActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         val eventAdapter = EventAdapter(mutableListOf())
         recyclerView.adapter = eventAdapter
+
+
+        searchButton.setOnClickListener {
+            val query = searchInput.text.toString().trim()
+            if (query.isNotBlank()) {
+                searchEvents(query, eventAdapter)
+            } else {
+                Toast.makeText(this, "Please enter a search term", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
