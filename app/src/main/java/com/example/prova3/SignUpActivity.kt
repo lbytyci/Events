@@ -146,3 +146,24 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
     }
+
+    private fun handleRegistrationError(exception: Exception?) {
+        when (exception) {
+            is FirebaseAuthWeakPasswordException -> {
+                editTextRegisterPwd.error = "Weak password!"
+                editTextRegisterPwd.requestFocus()
+            }
+            is FirebaseAuthInvalidCredentialsException -> {
+                editTextRegisterEmail.error = "Invalid email!"
+                editTextRegisterEmail.requestFocus()
+            }
+            is FirebaseAuthUserCollisionException -> {
+                editTextRegisterEmail.error = "Email already registered!"
+                editTextRegisterEmail.requestFocus()
+            }
+            else -> {
+                Log.e(TAG, exception?.message.orEmpty())
+                Toast.makeText(this, exception?.message, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
