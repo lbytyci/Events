@@ -73,3 +73,24 @@ class HomeOrganizationSearchActivity : AppCompatActivity() {
             }
         }
     }
+
+
+    private fun navigateToHome(): Boolean {
+        val databaseReference = FirebaseDatabase.getInstance().getReference("RegisteredUsers")
+            .child(FirebaseAuth.getInstance().uid!!)
+        databaseReference.child("type").get()
+            .addOnSuccessListener { snapshot ->
+                val type = snapshot.getValue(String::class.java)
+                val targetActivity = if (type == "Participant") {
+                    HomeParticipantActivity::class.java
+                } else {
+                    HomeOrganizationActivity::class.java
+                }
+                startActivity(Intent(applicationContext, targetActivity))
+                finish()
+            }
+            .addOnFailureListener { error ->
+                Toast.makeText(this, "Error fetching user type: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        return true
+    }
