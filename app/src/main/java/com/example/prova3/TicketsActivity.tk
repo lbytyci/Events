@@ -89,5 +89,29 @@ class TicketsActivity : AppCompatActivity() {
         }
     }
 
+    private fun fetchTicketsFromDatabase() {
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                ticketList.clear()
+                for (dataSnapshot in snapshot.children) {
+                    val ticket = dataSnapshot.getValue(Event::class.java)
+                    if (ticket != null) {
+                        ticketList.add(ticket)
+                    }
+                }
+                ticketAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(
+                    this@TicketsActivity,
+                    "Failed to load events: ${error.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+    }
+}
+
 
 
