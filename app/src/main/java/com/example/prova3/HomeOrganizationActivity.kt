@@ -124,3 +124,53 @@ class HomeOrganizationActivity : AppCompatActivity() {
             }
         })
     }
+
+
+    private fun showAddEventPopup() {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.popup_add_event, null)
+
+        val eventNameInput = dialogView.findViewById<EditText>(R.id.eventNameInput)
+        val eventTimeInput = dialogView.findViewById<EditText>(R.id.eventTimeInput)
+        val eventDateInput = dialogView.findViewById<EditText>(R.id.eventDateInput)
+        val eventDescriptionInput = dialogView.findViewById<EditText>(R.id.eventDescriptionInput)
+        val eventPlaceInput = dialogView.findViewById<EditText>(R.id.eventPlaceInput)
+        val ticketsAvailableInput = dialogView.findViewById<EditText>(R.id.eventTicketsInput)
+        val ticketsPriceInput = dialogView.findViewById<EditText>(R.id.eventTicketPriceInput)
+        val submitButton = dialogView.findViewById<Button>(R.id.submitButton)
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+
+        submitButton.setOnClickListener {
+            val eventName = eventNameInput.text.toString().trim()
+            val eventTime = eventTimeInput.text.toString().trim()
+            val eventDate = eventDateInput.text.toString().trim()
+            val eventDescription = eventDescriptionInput.text.toString().trim()
+            val eventPlace = eventPlaceInput.text.toString().trim()
+            val ticketsAvailable = ticketsAvailableInput.text.toString().trim()
+            val ticketsPrice = ticketsPriceInput.text.toString().trim()
+
+            val eventId = (1..100).random().toString()
+            if (eventName.isEmpty() || eventTime.isEmpty() || eventDate.isEmpty() ||
+                eventDescription.isEmpty() || eventPlace.isEmpty() || ticketsAvailable.isEmpty() || ticketsPrice.isEmpty()
+            ) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            } else {
+                addEventToDatabase(
+                    eventDate,
+                    eventDescription,
+                    eventId,
+                    eventName,
+                    eventPlace,
+                    eventTime,
+                    ticketsAvailable.toInt(),
+                    ticketsPrice
+                )
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
+    }
