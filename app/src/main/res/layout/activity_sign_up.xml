@@ -39,7 +39,26 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
-            </RadioGroup>
+
+            <RadioButton
+                android:id="@+id/radio_participant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aleo_semibold"
+                android:text="Participant"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radio_organization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="95dp"
+                android:fontFamily="@font/aleo_semibold"
+                android:text="Organization"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </RadioGroup>
 
 
         <EditText
