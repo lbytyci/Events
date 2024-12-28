@@ -135,4 +135,46 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/button_background"
             />
-        
+
+
+        <ImageView
+            android:id="@+id/imageView_register_continue"
+            android:layout_width="62dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="5dp"
+            android:onClick="continueHome"
+            app:srcCompat="@drawable/arrow_icon" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textViewAlr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/tiro_gurmukhi"
+                android:text="Already have an account?"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView_register_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tiro_gurmukhi"
+                android:text="Log In"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
