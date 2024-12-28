@@ -1,1 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <EditText
+            android:id="@+id/eventNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Event Name"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toTopOf="@+id/eventTimeInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/eventTimeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Event Time"
+            android:inputType="time"
+            app:layout_constraintBottom_toTopOf="@+id/eventDateInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/eventDateInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Event Date"
+            android:inputType="date"
+            app:layout_constraintBottom_toTopOf="@+id/eventDescriptionInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/eventDescriptionInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Event Description"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toTopOf="@+id/eventPlaceInput"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/eventPlaceInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Event Place"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toTopOf="@+id/eventTicketsInput"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/eventTicketsInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Number of Tickets"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/eventTicketPriceInput"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/eventTicketPriceInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Ticket Price"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toTopOf="@+id/submitButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="28dp"
+            android:backgroundTint="#40000000"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.083"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
