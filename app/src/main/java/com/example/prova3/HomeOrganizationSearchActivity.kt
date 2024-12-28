@@ -94,3 +94,31 @@ class HomeOrganizationSearchActivity : AppCompatActivity() {
             }
         return true
     }
+
+
+    private fun searchEvents(query: String, adapter: EventAdapter) {
+        val database = Firebase.database
+        val eventsRef = database.getReference("Events")
+        val queryToSearch = query.trim()
+
+        Log.d("SearchQuery", "Searching for: $queryToSearch")
+
+        eventsRef.get()
+            .addOnSuccessListener { snapshot ->
+                val eventsList = snapshot.children.mapNotNull { it.getValue(Event::class.java) }
+                val filteredEvents = eventsList.filter {
+                    it.name.contains(queryToSearch, ignoreCase = true)
+                }
+
+                if (filteredEvents.isNotEmpty()) {
+                    adapter.updateEvents(filteredEvents)
+                } else {
+                    Toast.makeText(this, "No events found", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("FirebaseQueryError", "Error querying events: ${exception.message}")
+                Toast.makeText(this, "Failed to retrieve events", Toast.LENGTH_SHORT).show()
+            }
+    }
+}
