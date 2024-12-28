@@ -95,3 +95,11 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun registerUser(
+        textFullName: String,
+        textEmail: String,
+        textType: String,
+        textMobile: String,
+        textPassword: String
+    )
