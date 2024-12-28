@@ -174,3 +174,44 @@ class HomeOrganizationActivity : AppCompatActivity() {
 
         dialog.show()
     }
+
+
+    private fun addEventToDatabase(
+        date: String,
+        description: String,
+        id: String,
+        name: String,
+        place: String,
+        time: String,
+        ticketsAvailable: Int,
+        ticketsPrice: String
+    ) {
+        val eventId = database.push().key
+        if (eventId != null) {
+            val event = Event(
+                name = name,
+                time = time,
+                date = date,
+                description = description,
+                place = place,
+                id = eventId,
+                ticketsAvailable = ticketsAvailable,
+                ticketsPrice = ticketsPrice
+            )
+            database.child(eventId).setValue(event).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Event added successfully!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        this,
+                        "Failed to add event: ${task.exception?.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        } else {
+            Toast.makeText(this, "Failed to generate event ID", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+}
