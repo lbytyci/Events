@@ -167,3 +167,10 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
+
+    data class ReadWriteUserDetails(val fullName: String, val type: String, val mobile: String)
+
+    companion object {
+        private const val TAG = "SignUpActivity"
+    }
+}
