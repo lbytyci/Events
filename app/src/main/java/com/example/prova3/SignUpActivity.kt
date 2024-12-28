@@ -59,3 +59,11 @@ class SignUpActivity : AppCompatActivity() {
             ).show()
             return
         }
+
+        val radioButtonRegisterTypeSelected: RadioButton = findViewById(selectedTypeId)
+        val textFullName = editTextRegisterFullName.text.toString().trim()
+        val textEmail = editTextRegisterEmail.text.toString().trim()
+        val textMobile = editTextRegisterMobile.text.toString().trim()
+        val textPassword = editTextRegisterPwd.text.toString().trim()
+        val textConfirmPassword = editTextRegisterConfirmPwd.text.toString().trim()
+        val textType = radioButtonRegisterTypeSelected.text.toString()
