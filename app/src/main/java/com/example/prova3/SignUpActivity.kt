@@ -44,9 +44,18 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         val imageRegister: ImageView = findViewById(R.id.imageView_register_continue)
-
-
         imageRegister.setOnClickListener {
             handleRegistration()
         }
     }
+
+    private fun handleRegistration() {
+        val selectedTypeId = radioGroupRegisterType.checkedRadioButtonId
+        if (selectedTypeId == -1) {
+            Toast.makeText(
+                this,
+                "Please select if you are an Organization or Participant",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
