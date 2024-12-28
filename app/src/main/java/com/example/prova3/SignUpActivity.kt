@@ -42,3 +42,11 @@ class SignUpActivity : AppCompatActivity() {
             val intent = Intent(this, LogInActivity::class.java)
             startActivity(intent)
         }
+
+        val imageRegister: ImageView = findViewById(R.id.imageView_register_continue)
+
+
+        imageRegister.setOnClickListener {
+            handleRegistration()
+        }
+    }
