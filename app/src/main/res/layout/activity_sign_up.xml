@@ -59,4 +59,19 @@
             android:textColor="@color/material_dynamic_neutral20"
             />
 
+
+        <EditText
+            android:id="@+id/editText_register_mobile"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter your phone number: "
+            android:inputType="phone"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_background"
+            />
+
         
