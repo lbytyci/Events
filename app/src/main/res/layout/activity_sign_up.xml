@@ -74,4 +74,18 @@
             android:background="@drawable/button_background"
             />
 
+
+        <EditText
+            android:id="@+id/editText_register_password"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter your password: "
+            android:inputType="textPassword"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_background"
+            />
         
