@@ -102,4 +102,47 @@ class SignUpActivity : AppCompatActivity() {
         textType: String,
         textMobile: String,
         textPassword: String
-    )
+    ) {
+        val auth = FirebaseAuth.getInstance()
+        auth.createUserWithEmailAndPassword(textEmail, textPassword)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val firebaseUser = auth.currentUser
+                    val writeUserDetails = ReadWriteUserDetails(textFullName, textType, textMobile)
+
+                    val referenceProfile = FirebaseDatabase.getInstance().getReference("RegisteredUsers")
+                    firebaseUser?.let {
+                        referenceProfile.child(it.uid).setValue(writeUserDetails)
+                            .addOnCompleteListener { saveTask ->
+                                if (saveTask.isSuccessful) {
+                                    Toast.makeText(
+                                        this,
+                                        "User registered successfully",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    val intent = when (textType.lowercase()) {
+                                        "participant" -> Intent(this, HomeParticipantActivity::class.java)
+                                        "organization" -> Intent(this, HomeOrganizationActivity::class.java)
+                                        else -> {
+                                            Toast.makeText(this, "Unknown user type!", Toast.LENGTH_SHORT).show()
+                                            null
+                                        }
+                                    }
+
+                                    if (intent != null) {
+                                        intent.flags =
+                                            Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                        startActivity(intent)
+                                        finish()
+                                    }
+
+                                } else {
+                                    Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                    }
+                } else {
+                    handleRegistrationError(task.exception)
+                }
+            }
+    }
