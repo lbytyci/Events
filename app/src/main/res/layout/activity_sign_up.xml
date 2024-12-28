@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".SignUpActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        tools:context=".LogInActivity">
+
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:fontFamily="@font/tiro_gurmukhi"
+            android:layout_gravity="center_horizontal"
+            android:text="Create Your Account"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+
+        <RadioGroup
+            android:id="@+id/radio_group_register_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_participant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aleo_semibold"
+                android:text="Participant"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radio_organization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="95dp"
+                android:fontFamily="@font/aleo_semibold"
+                android:text="Organization"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+
+        <EditText
+            android:id="@+id/editText_register_name"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:layout_gravity="center_horizontal"
+            android:hint="Enter your name/ Organization's name:"
+            android:gravity="center_vertical|center_horizontal"
+            android:inputType="textMultiLine"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:background="@drawable/button_background"
+            />
+
+
+        <EditText
+            android:id="@+id/editText_register_email"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_background"
+            android:ems="10"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter your email:"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/material_dynamic_neutral20"
+            />
+
+
+        <EditText
+            android:id="@+id/editText_register_mobile"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter your phone number: "
+            android:inputType="phone"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_background"
+            />
+
+
+        <EditText
+            android:id="@+id/editText_register_password"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Enter your password: "
+            android:inputType="textPassword"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_background"
+            />
+
+
+        <EditText
+            android:id="@+id/editText_register_confirm_password"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Confirm your password: "
+            android:inputType="textPassword"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_background"
+            />
+
+
+        <ImageView
+            android:id="@+id/imageView_register_continue"
+            android:layout_width="62dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="5dp"
+            android:onClick="continueHome"
+            app:srcCompat="@drawable/arrow_icon" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textViewAlr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/tiro_gurmukhi"
+                android:text="Already have an account?"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView_register_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tiro_gurmukhi"
+                android:text="Log In"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
