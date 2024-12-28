@@ -23,6 +23,8 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var userNameTextView: TextView
     private lateinit var userTypeTextView: TextView
 
+
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
