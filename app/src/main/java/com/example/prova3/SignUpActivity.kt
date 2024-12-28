@@ -36,3 +36,9 @@ class SignUpActivity : AppCompatActivity() {
         editTextRegisterConfirmPwd = findViewById(R.id.editText_register_confirm_password)
         radioGroupRegisterType = findViewById(R.id.radio_group_register_type)
         radioGroupRegisterType.clearCheck()
+
+        val textContinueLogIn = findViewById<TextView>(R.id.textView_register_login)
+        textContinueLogIn.setOnClickListener {
+            val intent = Intent(this, LogInActivity::class.java)
+            startActivity(intent)
+        }
