@@ -1,1 +1,93 @@
+package com.example.prova3
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.prova3.utils.Event
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+
+
+class TicketsActivity : AppCompatActivity() {
+
+    private lateinit var database: DatabaseReference
+    private lateinit var ticketAdapter: TicketAdapter
+    private val ticketList = mutableListOf<Event>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_tickets)
+
+        supportActionBar?.title = "Tickets"
+
+
+        try {
+            database = FirebaseDatabase.getInstance().getReference("Events")
+        } catch (e: Exception) {
+            Toast.makeText(this, "Firebase initialization error: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+
+
+        setupRecyclerView()
+        fetchTicketsFromDatabase()
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        bottomNavigationView.selectedItemId = R.id.profile
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    val databaseReference = FirebaseDatabase.getInstance().getReference("RegisteredUsers").child(FirebaseAuth.getInstance().uid!!)
+                    databaseReference.child("type").addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val type = snapshot.getValue(String::class.java)
+                            if (type == "Participant") {
+                                startActivity(Intent(applicationContext, HomeParticipantActivity::class.java))
+                                finish()
+                            } else if (type == "Organization") {
+                                startActivity(Intent(applicationContext, HomeOrganizationActivity::class.java))
+                                finish()
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Toast.makeText(applicationContext, "Error fetching user type: ${error.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    })
+                    true
+                }
+
+                R.id.search -> {
+                    startActivity(Intent(applicationContext, HomeOrganizationSearchActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.tickets -> {
+                    true
+                }
+                R.id.profile -> {
+                    startActivity(Intent(applicationContext, ProfileActivity::class.java))
+                    finish()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun setupRecyclerView() {
+        val recyclerView = findViewById<RecyclerView>(R.id.ticketsRecyclerView)
+        if (recyclerView != null) {
+            ticketAdapter = TicketAdapter(ticketList)
+            recyclerView.layoutManager = LinearLayoutManager(this)
+            recyclerView.adapter = ticketAdapter
+        } else {
+            Toast.makeText(this, "RecyclerView not found", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 
