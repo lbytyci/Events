@@ -2,12 +2,16 @@
 Events App është një aplikacion android, i cili është krijuar për të ndihmuar ata që dëshirojnë të marrin pjesë në evente të ndryshme duke blerë biletat që duan.
 Aplikacioni ndahet në dy kategori: organizatorë dhe pjesëmarrës. Organizatorët vendosin eventet për të cilat pjesëmarrësit mund të jenë të interesuar, ndërsa pjesëmarrësit, kur kyçen në aplikacion, mund vetëm të blejnë biletat për eventet që dëshirojnë të marrin pjesë. Të gjitha këto janë të interpretuara me foto si dhe me një përshkrim.
 
+
 # Zhvilluar nga / Developed by
 Lironë Bytyçi - lirone.bytyci@student.uni-pr.edu
+
 Leonitë Gllareva - leonite.gllareva@student.uni-pr.edu
+
 
 # Vlerësuesi i lëndës/projektit
 Elvir Misini
+
 
 # E ndertuar me / Built with
 Kotlin
@@ -16,8 +20,8 @@ Android Jetpack Components
 Custom Background
 Flaticon
 
-# Screenshots
 
+# Screenshots
 ![sign up](https://github.com/user-attachments/assets/4a864c72-e381-4de8-a366-02b1f494c149)
 ![Log in](https://github.com/user-attachments/assets/d4734a88-4366-4578-b50f-268c12d7f43f)
 ![participant](https://github.com/user-attachments/assets/41b35b59-37f8-4416-a549-8e82c857aa7e)
