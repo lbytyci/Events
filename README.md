@@ -20,7 +20,7 @@ FireBase - Databaza
 
 Android Jetpack Components
 
-Custom Background
+Figma
 
 Flaticon
 
