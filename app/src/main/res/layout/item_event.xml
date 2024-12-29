@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <!-- Event Image -->
+        <ImageView
+            android:id="@+id/eventImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Event Image" />
+
+        <!-- Event Name -->
+        <TextView
+            android:id="@+id/eventName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/tiro_gurmukhi"
+            android:gravity="center_horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp"
+            android:layout_marginTop="10dp" />
+
+        <!-- Details Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!-- Location -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/location2"
+                    android:contentDescription="Location Icon"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/eventPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/tiro_gurmukhi"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="start" />
+            </LinearLayout>
+
+            <!-- Date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/baseline_calendar_month_24"
+                    android:contentDescription="Date Icon"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/eventDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/tiro_gurmukhi"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="start" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/baseline_access_time_24"
+                    android:contentDescription="Time Icon"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/eventTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/tiro_gurmukhi"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="start" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ticketsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available Tickets: "
+            android:fontFamily="@font/tiro_gurmukhi"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/tickets_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:fontFamily="@font/tiro_gurmukhi"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ticketsPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tickets Price: "
+                android:fontFamily="@font/tiro_gurmukhi"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:layout_marginTop="16dp" />
+            <TextView
+                android:id="@+id/ticketsPriceNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:fontFamily="@font/tiro_gurmukhi"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+                    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textAboutEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp"
+            android:text="About this Event"
+            android:fontFamily="@font/tiro_gurmukhi"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/eventDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/tiro_gurmukhi"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
+        <!-- Buy Tickets Button -->
+        <Button
+            android:id="@+id/buyTicketsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#40000000"
+            android:text="Buy Ticket"
+            android:fontFamily="@font/tiro_gurmukhi"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
