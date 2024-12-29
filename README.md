@@ -15,9 +15,13 @@ Elvir Misini
 
 # E ndertuar me / Built with
 Kotlin
+
 FireBase - Databaza
+
 Android Jetpack Components
+
 Custom Background
+
 Flaticon
 
 
