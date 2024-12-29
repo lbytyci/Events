@@ -18,6 +18,7 @@
           "current_key": "AIzaSyD_bzDz6yp9mlya58LZyoM5v3WBth3WkfM"
         }
       ],
+
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": []
@@ -25,5 +26,6 @@
       }
     }
   ],
+
   "configuration_version": "1"
 }
