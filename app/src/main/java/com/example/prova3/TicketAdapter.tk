@@ -1,1 +1,66 @@
+package com.example.prova3
 
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
+import com.example.prova3.utils.Event
+import com.google.firebase.database.FirebaseDatabase
+
+class TicketAdapter(private var ticketList: MutableList<Event>) :
+    RecyclerView.Adapter<TicketAdapter.TicketViewHolder>() {
+
+    class TicketViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val ticketName: TextView = itemView.findViewById(R.id.ticketEventName)
+        val ticketTime: TextView = itemView.findViewById(R.id.ticketEventTime)
+        val ticketDate: TextView = itemView.findViewById(R.id.ticketEventDate)
+        val ticketPlace: TextView = itemView.findViewById(R.id.ticketEventPlace)
+        val ticketImage: ImageView = itemView.findViewById(R.id.ticketImage)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TicketViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_ticket, parent, false)
+        return TicketViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: TicketViewHolder, position: Int) {
+        val ticket = ticketList[position]
+
+        holder.ticketName.text = ticket.name
+        holder.ticketTime.text = ticket.time
+        holder.ticketDate.text = ticket.date
+        holder.ticketPlace.text = ticket.place
+        holder.ticketImage.setImageResource(getRandomDrawable())
+
+
+    }
+
+    override fun getItemCount(): Int = ticketList.size
+
+
+    private fun getRandomDrawable(): Int {
+        val drawableList = listOf(
+            R.drawable.event1,
+            R.drawable.event2,
+            R.drawable.event3,
+            R.drawable.event4,
+            R.drawable.event5,
+            R.drawable.event6
+        )
+        return drawableList.random()
+    }
+
+    fun updateTicketDetails(ticketId: String, tickets: Int, price: String) {
+        val ticket = ticketList.find { it.id == ticketId }
+        ticket?.let {
+            it.ticketsAvailable = tickets
+            it.ticketsPrice = price
+            notifyDataSetChanged()
+        }
+    }
+}
