@@ -20,8 +20,6 @@ FireBase - Databaza
 
 Android Jetpack Components
 
-Figma
-
 Flaticon
 
 
