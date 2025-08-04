@@ -4,7 +4,7 @@ Aplikacioni ndahet në dy kategori: organizatorë dhe pjesëmarrës. Organizator
 
 
 # Zhvilluar nga / Developed by
-Lironë Bytyçi - lirone.bytyci@student.uni-pr.edu
+Lironë Bytyçi - lirone.bytyci@student.uni-pr.edu (festinabytyqi)
 
 Leonitë Gllareva - leonite.gllareva@student.uni-pr.edu
 
